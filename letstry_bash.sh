@@ -1,0 +1,10 @@
+#!/bin/bash
+
+var_1=a$1
+var_2=$1
+
+python ./magnet.py $var_2
+
+mysql -D newuserdata -u projectuser -pankitldrpceb -e "LOAD DATA LOCAL INFILE '/home/villain/final_project/$var_2.txt' INTO TABLE $var_1 COLUMNS TERMINATED BY '\t'"
+
+#mysql -D newuserdata -u projectuser -pankitldrpceb -e "SELECT DISTINCT name FROM $var_1"
